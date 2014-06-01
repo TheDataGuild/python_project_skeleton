@@ -4,4 +4,4 @@ echo "Machine name: $2"
 echo ""
 
 source env_variables_$1_$2.sh
-../../source_data_selection/select_data_source source_data_locations_$1_$2.ini
+../../source_data_selection/select_source_data source_data_locations_$1_$2.ini
