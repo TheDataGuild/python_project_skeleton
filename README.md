@@ -1,5 +1,7 @@
-Data Guild Python Project Skeleton v0.1
-=======================================
+Data Guild Python Project Skeleton
+----------------------------------
+
+Version 0.1
 
 May 2014
 
