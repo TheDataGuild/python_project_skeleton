@@ -1,0 +1,47 @@
+#! /usr/bin/env python
+import os
+import argparse
+import ConfigParser
+
+# Location of this script
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+# Parse the command line arguments
+parser = argparse.ArgumentParser()
+parser.add_argument("filename", type=str,
+                    help="data source location description file")
+args = parser.parse_args()
+
+# Load the source data location description file
+config = ConfigParser.ConfigParser(allow_no_value=True)
+config.read(args.filename)
+
+# Display the available data sources
+i = 1
+print "Data Sources:\n"
+sections = config.sections()
+for section in sections:
+    print "[%d]: %s\n" % (i,config.get(section,'name'))
+    print "Description:\n%s\n" % config.get(section,'description')
+    print "Path:\n%s\n\n" % config.get(section,'path')
+    i += 1
+num_sources = i-1
+
+# Select the source data to use
+i=0
+while i<1 or i>num_sources:
+    i = input("Selection: ")
+
+# Add a '/' to the end of the source data path as needed 
+ds_path = config.get(sections[i-1],'path')
+if ds_path[-1] != '/':
+	ds_path += '/'
+
+# Generate the configuration file specifying the source data to use
+f = open(os.path.join(__location__, 'current_source_data_location.ini'),'w')
+f.write("[CurrentSourceData]\n")
+f.write("name: %s\n" % config.get(sections[i-1],'name'))
+f.write("description: %s\n" % config.get(sections[i-1],'description'))
+f.write("path: %s" % ds_path)
+f.close()
+
