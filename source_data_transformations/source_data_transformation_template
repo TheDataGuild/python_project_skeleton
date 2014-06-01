@@ -1,0 +1,22 @@
+#! /usr/bin/env python
+import datetime as dt
+from DataGuild.derived_data import derived_data_path
+from DataGuild.source_data_selection import source_data_path
+
+# Path to the source data
+source_path = data_source_path.read()
+
+# Path to the derived data
+derived_path = derived_data_path.read()
+
+print "<Description of the source data transformation that will be executed>"
+
+# Note the start time of the run
+start_time = dt.datetime.now()
+print "Start time:", dt.datetime.now()
+
+# Source data transformation code goes here
+
+# Display the total time taken to create the derived data source
+end_time = dt.datetime.now()
+print "Processing time:", end_time - start_time
