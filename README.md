@@ -1,8 +1,7 @@
 Data Guild Python Project Skeleton
 ----------------------------------
 
-Version 0.1  
-May 2014
+Version 0.1 - May 2014
 
 This project skeleton provides some basic capabilities to support 
 collaborative data analysis across a number of machines. The most 
@@ -22,14 +21,15 @@ to happen through code that is under version control, we can
 establish a tight coupling between analytic results and the 
 supporting data transformations needed to produce them.
 
-By enforcing this workflow, we ease the pain of synchronizing the 
-team during the project and simplify the process of delivering 
-reproducible analytic results to our clients.
+By enforcing this workflow, we simplify the processes of 
+synchronizing the team during the project and delivering 
+reproducible analytic results to our clients at the conclusion of
+the project.
 
-This workflow is undoubtedly a work in progress and came to life 
+This workflow is undoubtedly a work in progress. It came to life 
 after particular challenges arose during a client engagement. 
 Please pass along suggestions or make contributions through pull 
 requests to improve it!
 
-Chris Diehl
+Chris Diehl  
 chris@thedataguild.com
