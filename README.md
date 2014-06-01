@@ -1,8 +1,7 @@
 Data Guild Python Project Skeleton
 ----------------------------------
 
-Version 0.1
-
+Version 0.1  
 May 2014
 
 This project skeleton provides some basic capabilities to support 
