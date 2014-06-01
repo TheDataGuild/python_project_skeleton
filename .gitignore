@@ -4,5 +4,5 @@
 *.pyc
 *.ipynb_checkpoints*
 __init__.pyc
-./derived_data/
-./source_data_selection/current_source_data_location.ini
+derived_data/
+source_data_selection/current_source_data_location.ini
