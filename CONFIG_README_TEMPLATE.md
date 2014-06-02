@@ -4,7 +4,7 @@ Prerequisites
 May 2014
 
 In order to recompute the analytic results found within the notebooks in 
-the _/final_ subdirectory, a number of steps are required to set up the necessary
+the /final subdirectory, a number of steps are required to set up the necessary
 environment on a particular machine. 
 
 1. Download the original source data. __\<add instructions on where to find the 
@@ -14,7 +14,7 @@ note the location of the data on the target machine.
 
 2. Clone the __\<add repository name\>__ repository on the target machine. 
 
-3. Enter the _/__\<add repository name\>__/config/env_specs_ subdirectory to define
+3. Enter the /__\<add repository name\>__/config/env_specs subdirectory to define
 target machine specific configuration files. There are two files you will need 
 to create. The first is a _source_data_locations_\<username\>_\<machine\>.ini_ file. 
 This file specifies the location of the original source data. Mutiple data 
