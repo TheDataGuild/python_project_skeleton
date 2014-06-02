@@ -7,9 +7,9 @@ In order to recompute the analytic results found within the notebooks in
 the /final subdirectory, a number of steps are required to set up the necessary
 environment on a particular machine. 
 
-1. Download the original source data. \<add instructions on where to find the 
-particular .tar.gz archive(s) this project requires\> 
-Retrieve <name of .tar.gz archive>, uncompress and expand the archive and
+1. Download the original source data. \<_add instructions on where to find the 
+particular .tar.gz archive(s) this project requires_\> 
+Retrieve \<_name of .tar.gz archive_\>, uncompress and expand the archive and
 note the location of the data on the target machine. 
 
 2. Clone the <repository name> repository on the target machine. 
