@@ -1,0 +1,51 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version
+VAGRANTFILE_API_VERSION = "2"
+
+# Provisioning script
+$script = <<SCRIPT
+sudo apt-get update -y
+sudo apt-get install -y wget
+mkdir downloads
+cd downloads
+echo Downloading Anaconda.
+wget http://09c8d0b2229f813c1b93-c95ac804525aac4b6dba79b00b39d1d3.r79.cf1.rackcdn.com/Anaconda-2.0.1-Linux-x86_64.sh
+echo Installing Anaconda.
+bash Anaconda-2.0.1-Linux-x86_64.sh -b -p /home/vagrant/anaconda
+echo "export PATH=/home/vagrant/anaconda/bin:$PATH" >> /home/vagrant/.bash_profile
+echo Installing Postgres.
+sudo apt-get install postgresql postgresql-contrib libpq-dev -y
+echo Installing psycopg2, dataset and ggplot.
+sudo /home/vagrant/anaconda/bin/pip install psycopg2 dataset ggplot
+SCRIPT
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  # Vagrant virtual environment
+  config.vm.box = "hashicorp/precise64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+  # Port forwarding for the IPython notebook
+  config.vm.network "forwarded_port", guest: 8888, host: 8888
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  # config.vm.synced_folder "../Data", "/Data"
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  config.vm.provider "virtualbox" do |vb|
+
+     # Modify the amount of available RAM
+  	 vb.customize ["modifyvm", :id, "--memory", "4096"]
+
+  end
+
+  # Run the provisioning script from above
+  config.vm.provision "shell", inline: $script
+
+end
